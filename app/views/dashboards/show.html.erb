@@ -37,7 +37,12 @@ table td{
     <%= f.submit "add", class:"btn"%>
   <%end%>
 </div>
-
+<div>
+<ul>
+  <li>Number of positive cases: <%= TestResult.where(result: 1).length %></li>
+  <li>Number of negative cases: <%= TestResult.where(result: 0).length %></li>
+</ul>
+</div>
 <table>
   <thead>
     <th>postcode</th>
