@@ -1,6 +1,7 @@
 <% if alert%>
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
+<a href="https://github.com/LansiLiu/mycovidtesthub">Github repository</a>
 <%= form_with(url: login_path,scope: :session, local: true) do |f| %>
 	<%= f.label :username %>
 	<%= f.text_field :username %>
