@@ -11,5 +11,14 @@
 
   <body>
     <%= yield %>
+    <!-- %= debug(params) % -->
+    <div>
+      <% if flash.any? %>
+        <%= flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"> <%= message %></div>
+        <%end%>
+      <% end %>
+    </div>
   </body>
 </html>
+

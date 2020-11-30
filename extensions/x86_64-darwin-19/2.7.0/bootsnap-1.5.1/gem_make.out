@@ -1,0 +1,15 @@
+current directory: /Users/lanhsi/MyCovidTestHub/gems/bootsnap-1.5.1/ext/bootsnap
+/Users/lanhsi/.rbenv/versions/2.7.2/bin/ruby -I /Users/lanhsi/.rbenv/versions/2.7.2/lib/ruby/2.7.0 -r ./siteconf20201126-44678-124s2mj.rb extconf.rb
+creating Makefile
+
+current directory: /Users/lanhsi/MyCovidTestHub/gems/bootsnap-1.5.1/ext/bootsnap
+make "DESTDIR=" clean
+
+current directory: /Users/lanhsi/MyCovidTestHub/gems/bootsnap-1.5.1/ext/bootsnap
+make "DESTDIR="
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.bundle
+
+current directory: /Users/lanhsi/MyCovidTestHub/gems/bootsnap-1.5.1/ext/bootsnap
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20201126-44678-or9sxz/bootsnap

@@ -1,0 +1,56 @@
+<html>
+<style type="text/css">
+ .center{
+  width: 680px;
+  border:1px solid black;
+  height: 600px;
+  float:left;
+  margin:10px;
+  background:grey;
+  padding:15px;
+} 
+  table{
+ border:1px solid white;
+}
+table th{
+ border: 1px solid white;
+ padding: 5px;
+ color:gold;
+}
+table td{
+ border: 1px solid white;
+ padding: 5px;
+ color: blue;
+}
+</style>
+  <h1>Dashboard</h1>
+<header>
+  <div>
+    <%= link_to "Log out", logout_path, method: :delete%>
+  </div>
+</header>
+<div>
+  Input TTN to add a new test kit
+  <%= form_with url: '/newkit' do |f| %>
+    <%= f.label :TTNcode %>
+    <%= f.text_field :TTNcode %>
+    <%= f.submit "add", class:"btn"%>
+  <%end%>
+</div>
+
+<table>
+  <thead>
+    <th>postcode</th>
+    <th>infection number</th>
+    <th>infectious rate</th>
+  </thead>
+  <tbody>
+    <% TestResult.group(:postcode).count.each do |pcode, cnt|%>
+      <tr>
+        <td> <%= pcode %> </td>
+        <td><%= cnt %> </td>
+        <td>foobar</td>
+      </tr>
+      <% end %>
+  </tbody>
+</html>

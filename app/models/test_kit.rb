@@ -1,3 +1,3 @@
 class TestKit < ApplicationRecord
-	belongs_to :test_result
+  validates :TTNcode, uniqueness: true
 end

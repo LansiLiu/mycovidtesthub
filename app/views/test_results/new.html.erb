@@ -1,2 +1,58 @@
-<h1>TestResults#new</h1>
-<p>Find me in app/views/test_results/new.html.erb</p>
+<!DOCTYPE html>
+<html>
+<h1>Report test result</h1>
+<style type="text/css">
+table{
+ border:1px solid white;
+}
+table th{
+ border: 1px solid white;
+ padding: 5px;
+ color:gold;
+}
+table td{
+ border: 1px solid white;
+ padding: 5px;
+ color: white;
+}
+</style>
+<div class="row">
+
+<div class="col-md-6 col-md-offset-3">
+
+<%=form_with model: @test_result, local: true do |f| %>
+  <%= render 'shared/error_messages' %>
+<!--%= render 'shared/error_messages' %> -->
+
+
+<%= f.label :fullname %>
+
+<%= f.text_field :fullname, class: 'form-control' %>
+
+<%= f.label :age %>
+
+<%= f.text_field :age, class: 'form-control' %>
+
+<%= f.label :gender, "gender(0 or 1 or 2)" %>
+
+<%= f.text_field :gender, class: 'form-control' %>
+
+<%= f.label :email %>
+
+<%= f.email_field :email, class: 'form-control' %>
+
+<%= f.label :postcode%>
+
+<%= f.text_field :postcode, class: 'form-control' %>
+
+<%= f.label :ttn, "Test Tracking Number (TTN)" %>
+
+<%= f.text_field :ttn, class: 'form-control' %>
+
+<%= f.label :result, "result(0 for negative 1 for positive, 3 for inconclusive)" %>
+
+<%= f.text_field :result, class: 'form-control' %>
+
+<%= f.submit "Submit", class: "btn btnprimary" %> <% end %> </div> </div>
+<!--%= debug(params) -->
+</html>
