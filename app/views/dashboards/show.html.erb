@@ -23,7 +23,7 @@ table td{
  color: blue;
 }
 </style>
-  <h1>Dashboard</h1>
+<h1>Dashboard</h1>
 <header>
   <div>
     <%= link_to "Log out", logout_path, method: :delete%>
@@ -42,15 +42,42 @@ table td{
   <thead>
     <th>postcode</th>
     <th>infection number</th>
+    <th>test conducted</th>
     <th>infectious rate</th>
   </thead>
   <tbody>
     <% TestResult.group(:postcode).count.each do |pcode, cnt|%>
       <tr>
         <td> <%= pcode %> </td>
+        <td> <%= a = TestResult.where(postcode: pcode, result: 1).count %></td>
         <td><%= cnt %> </td>
-        <td>foobar</td>
+        <td><%= (a / cnt).to_f %> </td>
       </tr>
       <% end %>
   </tbody>
+</table>
+<table>
+  <thead>
+    <th>age group</th>
+    <th>infection number</th>
+    <th>test conducted</th>
+    <th>infectious rate</th>
+  </thead>
+  <tbody>
+    <% (0..100).step(10) do |i| %>
+      <tr>
+        <td><%= "#{i} - #{i+10}" %></td>
+        <td><%= a = TestResult.where(result: 1).group(:age).having("age > #{i} and age < #{i+10}").length %> </td>
+        <td><%= b = TestResult.group(:age).having("age > #{i} and age < #{i+10}").length %></td>
+        <td>
+          <%if b > 0%>
+          <%= (a/b).to_f %>
+          <%else %>
+          <%= 0.0 %>
+          <% end %>
+       </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 </html>

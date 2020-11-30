@@ -1,0 +1,18 @@
+<table>
+  <thead>
+    <th><%= condition %></th>
+    <th>infection number</th>
+    <th>test conducted</th>
+    <th>infectious rate</th>
+  </thead>
+  <tbody>
+    <% TestResult.group(condition).count.each do |key, cnt|%>
+      <tr>
+        <td> <%= pcode %> </td>
+        <td> <%= TestResult.where(condition: key, result: 1).count %></td>
+        <td><%= cnt %> </td>
+        <td><%= (TestResult.where(condition: key, result: 1).count / cnt).to_f %> </td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>

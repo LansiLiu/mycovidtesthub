@@ -16,6 +16,5 @@ Rails.application.routes.draw do
 
   get '/report', to: 'test_results#new'
 
-  get '/foobar', to: "staticpages#show"
   resources :test_results
 end
